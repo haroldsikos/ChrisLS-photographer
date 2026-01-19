@@ -9,12 +9,12 @@ export interface Photo {
 
 export enum PageRoute {
   HOME = '/',
-  PHOTOGRAPHY = '/photography',
-  COMMERCIAL = '/commercial',
-  SHOP = '/shop',
-  ABOUT = '/about',
-  CONTACT = '/contact',
-  TIPS = '/tips'
+  PHOTOGRAPHY = '/fotografia',
+  COMMERCIAL = '/comercial',
+  SHOP = '/tienda',
+  ABOUT = '/sobre-mi',
+  CONTACT = '/contacto',
+  TIPS = '/apoyo'
 }
 
 export interface NavItem {
