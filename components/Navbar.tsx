@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Instagram, Mail, Moon, Sun } from 'lucide-react';
 import { PageRoute } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 const Navbar: React.FC = () => {
+  const { t, language, setLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isDark, setIsDark] = useState(() => {
@@ -13,8 +15,11 @@ const Navbar: React.FC = () => {
     }
     return false;
   });
+  // Local language state removed in favor of Context
 
   const location = useLocation();
+  const isHome = location.pathname === PageRoute.HOME;
+  const isTransparentWithDarkBg = isHome && !scrolled && !isOpen;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,12 +61,12 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const navLinks = [
-    { label: 'FOTOGRAFÍA', path: PageRoute.PHOTOGRAPHY },
-    { label: 'COMERCIAL', path: PageRoute.COMMERCIAL },
-    { label: 'TIENDA', path: PageRoute.SHOP },
-    { label: 'SOBRE MÍ', path: PageRoute.ABOUT },
-    { label: 'CONTACTO', path: PageRoute.CONTACT },
-    { label: 'APOYO', path: PageRoute.TIPS },
+    { label: t('nav.photography'), path: PageRoute.PHOTOGRAPHY },
+    { label: t('nav.commercial'), path: PageRoute.COMMERCIAL },
+    { label: t('nav.shop'), path: PageRoute.SHOP },
+    { label: t('nav.about'), path: PageRoute.ABOUT },
+    { label: t('nav.contact'), path: PageRoute.CONTACT },
+    { label: t('nav.support'), path: PageRoute.TIPS },
   ];
 
   return (
@@ -73,7 +78,12 @@ const Navbar: React.FC = () => {
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <Link to={PageRoute.HOME} className="text-2xl font-serif tracking-widest font-semibold uppercase z-[101] relative text-stone-900 dark:text-stone-100">
+        {/* Logo */}
+        <Link
+          to={PageRoute.HOME}
+          className={`text-2xl font-serif tracking-widest font-semibold uppercase z-[101] relative transition-colors duration-300 ${isTransparentWithDarkBg ? 'text-white' : 'text-stone-900 dark:text-stone-100'
+            }`}
+        >
           Chris LS
         </Link>
 
@@ -84,19 +94,42 @@ const Navbar: React.FC = () => {
               key={link.path}
               to={link.path}
               className={`text-xs tracking-[0.2em] transition-colors ${location.pathname === link.path
-                ? 'font-medium border-b border-stone-800 dark:border-stone-100 pb-1 text-stone-900 dark:text-stone-100'
-                : 'text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-stone-100'
+                ? `font-medium border-b pb-1 ${isTransparentWithDarkBg
+                  ? 'text-white border-white'
+                  : 'text-stone-900 dark:text-stone-100 border-stone-800 dark:border-stone-100'
+                }`
+                : `${isTransparentWithDarkBg
+                  ? 'text-white/80 hover:text-white'
+                  : 'text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-stone-100'
+                }`
                 }`}
             >
               {link.label}
             </Link>
           ))}
 
+          {/* Language Toggle Desktop */}
+          <button
+            onClick={() => setLanguage(prev => prev === 'es' ? 'en' : 'es')}
+            className={`flex items-center text-xs tracking-widest font-sans ml-2 transition-colors ${isTransparentWithDarkBg
+              ? 'text-white/90 hover:text-white'
+              : 'text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-white'
+              }`}
+            title="Cambiar Idioma"
+          >
+            <span className={`transition-opacity ${language === 'es' ? 'font-bold' : 'opacity-60'}`}>ES</span>
+            <span className="mx-1 opacity-40">|</span>
+            <span className={`transition-opacity ${language === 'en' ? 'font-bold' : 'opacity-60'}`}>EN</span>
+          </button>
+
           {/* Theme Toggle Desktop */}
           <button
             onClick={toggleTheme}
-            className="p-2 text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-white transition-colors"
-            title={isDark ? "Modo Claro" : "Modo Oscuro"}
+            className={`p-2 transition-colors ${isTransparentWithDarkBg
+              ? 'text-white/90 hover:text-white'
+              : 'text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-white'
+              }`}
+            title={isDark ? t('nav.toggleThemeLight') : t('nav.toggleTheme')}
           >
             {isDark ? <Sun size={20} /> : <Moon size={20} />}
           </button>
@@ -107,7 +140,10 @@ const Navbar: React.FC = () => {
           {/* Mobile Menu Button - Animating Hamburger/X */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="w-10 h-10 focus:outline-none text-stone-900 dark:text-stone-100 flex items-center justify-center"
+            className={`w-10 h-10 focus:outline-none flex items-center justify-center transition-colors ${isTransparentWithDarkBg
+              ? 'text-white'
+              : 'text-stone-900 dark:text-stone-100'
+              }`}
             aria-label="Toggle Menu"
           >
             <div className="absolute transition-all duration-500 ease-in-out transform origin-center"
@@ -162,12 +198,24 @@ const Navbar: React.FC = () => {
               </div>
             </div>
             <span className="text-xs uppercase tracking-widest font-sans w-24 text-center">
-              {isDark ? "Modo Claro" : "Modo Oscuro"}
+              {isDark ? t('nav.toggleThemeLight') : t('nav.toggleTheme')}
+            </span>
+          </button>
+
+          {/* Mobile Language Toggle */}
+          <button
+            onClick={() => setLanguage(prev => prev === 'es' ? 'en' : 'es')}
+            className="text-stone-800 dark:text-stone-200 hover:text-stone-500 dark:hover:text-white transition-colors"
+          >
+            <span className="text-sm tracking-[0.2em] font-serif border border-stone-300 dark:border-stone-700 rounded-full px-6 py-2 flex items-center gap-2">
+              <span className={language === 'es' ? 'font-bold' : 'opacity-50'}>ES</span>
+              <span className="opacity-30">|</span>
+              <span className={language === 'en' ? 'font-bold' : 'opacity-50'}>EN</span>
             </span>
           </button>
 
           <div className="flex flex-col items-center space-y-4">
-            <p className="text-stone-400 text-xs tracking-widest uppercase font-sans">Contáctanos</p>
+            <p className="text-stone-400 text-xs tracking-widest uppercase font-sans">{t('footer.contact')}</p>
             <div className="flex space-x-8 text-stone-900 dark:text-stone-200">
               <a href="https://www.instagram.com/cris_l_._s" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
                 <Instagram size={24} strokeWidth={1.5} />

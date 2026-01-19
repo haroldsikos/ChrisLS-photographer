@@ -9,6 +9,7 @@ import Contact from './pages/Contact';
 import Tips from './pages/Tips';
 import Shop from './pages/Shop';
 import { PageRoute } from './types';
+import { LanguageProvider } from './context/LanguageContext';
 
 // Scroll to top on route change component
 const ScrollToTop = () => {
@@ -33,26 +34,28 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 
 const App: React.FC = () => {
   return (
-    <Router>
-      <ScrollToTop />
-      <Layout>
-        <Routes>
-          <Route path={PageRoute.HOME} element={<Home />} />
-          <Route
-            path={PageRoute.PHOTOGRAPHY}
-            element={<Portfolio title="Fotografía" subtitle="Colección Seleccionada" category="photo" />}
-          />
-          <Route
-            path={PageRoute.COMMERCIAL}
-            element={<Portfolio title="Comercial" subtitle="Productos & Interiores" category="commercial" />}
-          />
-          <Route path={PageRoute.SHOP} element={<Shop />} />
-          <Route path={PageRoute.ABOUT} element={<About />} />
-          <Route path={PageRoute.CONTACT} element={<Contact />} />
-          <Route path={PageRoute.TIPS} element={<Tips />} />
-        </Routes>
-      </Layout>
-    </Router>
+    <LanguageProvider>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Routes>
+            <Route path={PageRoute.HOME} element={<Home />} />
+            <Route
+              path={PageRoute.PHOTOGRAPHY}
+              element={<Portfolio title="Fotografía" subtitle="Colección Seleccionada" category="photo" />}
+            />
+            <Route
+              path={PageRoute.COMMERCIAL}
+              element={<Portfolio title="Comercial" subtitle="Productos & Interiores" category="commercial" />}
+            />
+            <Route path={PageRoute.SHOP} element={<Shop />} />
+            <Route path={PageRoute.ABOUT} element={<About />} />
+            <Route path={PageRoute.CONTACT} element={<Contact />} />
+            <Route path={PageRoute.TIPS} element={<Tips />} />
+          </Routes>
+        </Layout>
+      </Router>
+    </LanguageProvider>
   );
 };
 

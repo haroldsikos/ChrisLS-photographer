@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { ShoppingBag, ArrowUpRight, Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 interface Product {
   id: number;
@@ -11,70 +12,75 @@ interface Product {
 }
 
 const Shop: React.FC = () => {
+  const { t, language, formatCurrency } = useLanguage();
   // Número de teléfono para WhatsApp (Reemplazar con el real)
   const WHATSAPP_NUMBER = "51972772288";
   const [selectedProductIndex, setSelectedProductIndex] = useState<number | null>(null);
 
+  // Products data regenerated with translations
   const products: Product[] = [
     {
       id: 1,
-      name: "Print: Atardecer Andino",
-      type: "Fine Art Print",
+      name: t('shop.products.1.name'),
+      type: t('shop.type.print'),
       price: 45.00,
       image: "/images/shop/shop_1.webp",
-      description: "Impresión Giclée en papel de algodón de 30x40cm. Edición limitada."
+      description: t('shop.products.1.desc')
     },
     {
       id: 2,
-      name: "Pack Presets: Nostalgia",
-      type: "Digital",
+      name: t('shop.products.2.name'),
+      type: t('shop.type.digital'),
       price: 25.00,
       image: "/images/shop/shop_2.webp",
-      description: "Colección de 10 presets para Lightroom Desktop & Mobile. Estilo cinematográfico."
+      description: t('shop.products.2.desc')
     },
     {
       id: 3,
-      name: "Sesión Retrato: Esencia",
-      type: "Servicio",
+      name: t('shop.products.3.name'),
+      type: t('shop.type.service'),
       price: 150.00,
       image: "/images/shop/shop_3.webp",
-      description: "Sesión de 1 hora en exteriores. Entrega de 20 fotos editadas en alta resolución."
+      description: t('shop.products.3.desc')
     },
     {
       id: 4,
-      name: "Print: Océano Profundo",
-      type: "Fine Art Print",
+      name: t('shop.products.4.name'),
+      type: t('shop.type.print'),
       price: 60.00,
       image: "/images/shop/shop_4.webp",
-      description: "Impresión gran formato 50x70cm. Papel mate de alta calidad."
+      description: t('shop.products.4.desc')
     },
     {
       id: 5,
-      name: "Mentoria 1:1",
-      type: "Educación",
+      name: t('shop.products.5.name'),
+      type: t('shop.type.education'),
       price: 80.00,
       image: "/images/shop/shop_5.webp",
-      description: "Revisión de portafolio y dirección creativa por videollamada (60 min)."
+      description: t('shop.products.5.desc')
     },
     {
       id: 6,
-      name: "Zine: Caminos",
-      type: "Físico",
+      name: t('shop.products.6.name'),
+      type: t('shop.type.physical'),
       price: 35.00,
       image: "/images/shop/shop_6.webp",
-      description: "Fotolibro de tapa blanda con 40 páginas de fotografía documental de viajes."
+      description: t('shop.products.6.desc')
     }
   ];
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     e.currentTarget.src = "https://placehold.co/600x750/F5F5F4/57534E?text=Mockup"; // Fallback aesthetic mockup
     e.currentTarget.onerror = null; // Prevent infinite loop
+    console.warn(`Failed to load image: ${e.currentTarget.src}`);
   };
 
-  const handleBuyClick = (product: Product) => {
+  const handleBuyClick = (e: React.MouseEvent, product: Product) => {
+    e.stopPropagation();
+    e.preventDefault();
     const message = `Hola Chris LS, estoy interesado en el producto: ${product.name} (Precio ref: S/ ${product.price.toFixed(2)}). ¿Me podrías dar más información?`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank');
+    window.open(url, '_blank', 'noopener,noreferrer');
   };
 
   const handleImageClick = (index: number) => {
@@ -118,8 +124,8 @@ const Shop: React.FC = () => {
   return (
     <div className="pt-32 pb-16 px-6 max-w-7xl mx-auto fade-in">
       <div className="text-center mb-16">
-        <h1 className="font-serif text-4xl md:text-5xl mb-4 text-stone-900 dark:text-stone-100">Tienda</h1>
-        <p className="font-sans text-xs tracking-[0.2em] text-stone-500 dark:text-stone-400 uppercase">Prints, Presets & Servicios</p>
+        <h1 className="font-serif text-4xl md:text-5xl mb-4 text-stone-900 dark:text-stone-100">{t('shop.title')}</h1>
+        <p className="font-sans text-xs tracking-[0.2em] text-stone-500 dark:text-stone-400 uppercase">{t('shop.subtitle')}</p>
         <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-8"></div>
       </div>
 
@@ -154,7 +160,7 @@ const Shop: React.FC = () => {
                   {product.name}
                 </h3>
                 <span className="font-sans text-sm font-medium text-stone-800 dark:text-stone-200 ml-4">
-                  S/ {product.price.toFixed(2)}
+                  {formatCurrency(product.price)}
                 </span>
               </div>
 
@@ -163,10 +169,10 @@ const Shop: React.FC = () => {
               </p>
 
               <button
-                onClick={() => handleBuyClick(product)}
+                onClick={(e) => handleBuyClick(e, product)}
                 className="w-full py-3 border border-stone-200 dark:border-stone-700 hover:border-stone-900 dark:hover:border-stone-100 hover:bg-stone-900 dark:hover:bg-customDark hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.2em] flex items-center justify-center space-x-2 group/btn text-stone-900 dark:text-stone-200"
               >
-                <span>Consultar</span>
+                <span>{t('shop.consultLink')}</span>
                 <ArrowUpRight size={14} className="opacity-50 group-hover/btn:opacity-100" />
               </button>
             </div>
@@ -175,9 +181,9 @@ const Shop: React.FC = () => {
       </div>
 
       <div className="mt-20 text-center bg-stone-100 dark:bg-stone-800/50 p-8 rounded-sm">
-        <p className="font-sans text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-2">¿Buscas algo personalizado?</p>
+        <p className="font-sans text-xs text-stone-500 dark:text-stone-400 uppercase tracking-widest mb-2">{t('shop.customTitle')}</p>
         <p className="font-serif text-xl text-stone-800 dark:text-stone-200">
-          Realizo impresiones a medida y licencias comerciales bajo pedido.
+          {t('shop.customText')}
         </p>
       </div>
 
@@ -252,10 +258,10 @@ const Shop: React.FC = () => {
               <p className="text-xs font-sans uppercase tracking-[0.2em] mt-2 text-stone-400">{selectedProduct.type}</p>
               {/* Optional: Add a button to buy directly from lightbox */}
               <button
-                onClick={() => handleBuyClick(selectedProduct)}
+                onClick={(e) => handleBuyClick(e, selectedProduct)}
                 className="mt-4 px-6 py-2 border border-white/30 hover:bg-white hover:text-stone-900 transition-colors text-xs uppercase tracking-[0.2em]"
               >
-                Consultar
+                {t('shop.consultLink')}
               </button>
             </div>
           </div>

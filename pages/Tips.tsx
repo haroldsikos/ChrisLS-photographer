@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import { Coffee, Heart, CreditCard, Smartphone } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const Tips: React.FC = () => {
+    const { t } = useLanguage();
     const [amount, setAmount] = useState<number | ''>('');
     const [selectedPreset, setSelectedPreset] = useState<number | null>(null);
 
@@ -29,9 +31,9 @@ const Tips: React.FC = () => {
                 <div className="flex justify-center mb-6 text-stone-800">
                     <Heart size={32} strokeWidth={1} />
                 </div>
-                <h1 className="font-serif text-4xl md:text-5xl mb-4">Apoya mi Arte</h1>
+                <h1 className="font-serif text-4xl md:text-5xl mb-4">{t('tips.title')}</h1>
                 <p className="font-sans text-sm text-stone-500 leading-relaxed max-w-2xl mx-auto">
-                    Si disfrutas de mi trabajo, las historias que cuento o simplemente quieres invitarme a un café para mantenerme creativo, tu apoyo significa el mundo para mí.
+                    {t('tips.subtitle')}
                 </p>
             </div>
 
@@ -40,7 +42,7 @@ const Tips: React.FC = () => {
                 <div className="bg-white p-8 md:p-10 shadow-sm border border-stone-100 rounded-sm h-full">
                     <div className="flex items-center justify-center space-x-3 mb-8 text-stone-800">
                         <Coffee size={24} strokeWidth={1.5} />
-                        <h3 className="font-serif text-2xl">Invítame un café</h3>
+                        <h3 className="font-serif text-2xl">{t('tips.coffeeTitle')}</h3>
                     </div>
 
                     {/* Presets */}
@@ -61,7 +63,7 @@ const Tips: React.FC = () => {
 
                     {/* Custom Input */}
                     <div className="mb-8">
-                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-3">Cantidad personalizada (USD)</label>
+                        <label className="block text-xs uppercase tracking-widest text-stone-500 mb-3">{t('tips.customAmount')}</label>
                         <div className="relative">
                             <span className="absolute left-0 top-1/2 -translate-y-1/2 font-serif text-xl text-stone-400">$</span>
                             <input
@@ -86,11 +88,11 @@ const Tips: React.FC = () => {
                             }`}
                     >
                         <CreditCard size={16} />
-                        <span>Donar con Tarjeta</span>
+                        <span>{t('tips.donateBtn')}</span>
                     </button>
 
                     <p className="text-center mt-6 text-[10px] text-stone-400 font-sans">
-                        Pagos seguros vía Stripe.
+                        {t('tips.securePayment')}
                     </p>
                 </div>
 
@@ -136,8 +138,9 @@ const Tips: React.FC = () => {
                     </div>
 
                     <p className="font-sans text-xs tracking-widest text-white/60 mb-8 uppercase relative z-10">
-                        Escanea el QR desde tu billetera digital
+                        {t('tips.scanQr')}
                     </p>
+
 
                     <div className="bg-white p-4 rounded-xl mb-6 shadow-2xl relative z-10 transform transition-transform hover:scale-105 duration-500">
                         {/* 
@@ -159,7 +162,7 @@ const Tips: React.FC = () => {
 
                     <div className="mt-8 pt-6 border-t border-white/10 w-full relative z-10">
                         <p className="text-[10px] text-white/40 font-sans uppercase tracking-widest">
-                            Solo válido para Perú
+                            {t('tips.onlyPeru')}
                         </p>
                     </div>
                 </div>

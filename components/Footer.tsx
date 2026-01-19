@@ -2,8 +2,10 @@ import React from 'react';
 import { Instagram, Mail, Twitter, MessageCircle } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { PageRoute } from '../types';
+import { useLanguage } from '../context/LanguageContext';
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage();
   const location = useLocation();
 
   const getLinkClass = (path: string) => {
@@ -40,14 +42,14 @@ const Footer: React.FC = () => {
 
         {/* Links */}
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 text-xs tracking-widest uppercase">
-          <Link to={PageRoute.PHOTOGRAPHY} className={getLinkClass(PageRoute.PHOTOGRAPHY)}>Fotografía</Link>
-          <Link to={PageRoute.ABOUT} className={getLinkClass(PageRoute.ABOUT)}>Sobre Mí</Link>
-          <Link to={PageRoute.TIPS} className={getLinkClass(PageRoute.TIPS)}>Apoyo</Link>
+          <Link to={PageRoute.PHOTOGRAPHY} className={getLinkClass(PageRoute.PHOTOGRAPHY)}>{t('nav.photography')}</Link>
+          <Link to={PageRoute.ABOUT} className={getLinkClass(PageRoute.ABOUT)}>{t('nav.about')}</Link>
+          <Link to={PageRoute.TIPS} className={getLinkClass(PageRoute.TIPS)}>{t('nav.support')}</Link>
         </div>
 
         {/* Copyright */}
         <div className="text-stone-400 dark:text-stone-600 text-xs font-sans">
-          &copy; {new Date().getFullYear()} Chris LS Photography. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Chris LS Photography. {t('footer.rights')}
         </div>
       </div>
     </footer>
