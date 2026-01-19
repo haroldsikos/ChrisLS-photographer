@@ -12,7 +12,7 @@ interface Product {
 
 const Shop: React.FC = () => {
   // Número de teléfono para WhatsApp (Reemplazar con el real)
-  const WHATSAPP_NUMBER = "51999999999";
+  const WHATSAPP_NUMBER = "51972772288";
 
   const products: Product[] = [
     {
@@ -66,7 +66,7 @@ const Shop: React.FC = () => {
   ];
 
   const handleBuyClick = (product: Product) => {
-    const message = `Hola Chris LS, estoy interesado en el producto: ${product.name} (Precio ref: $${product.price}). ¿Me podrías dar más información?`;
+    const message = `Hola Chris LS, estoy interesado en el producto: ${product.name} (Precio ref: S/ ${product.price.toFixed(2)}). ¿Me podrías dar más información?`;
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
@@ -104,7 +104,7 @@ const Shop: React.FC = () => {
                   {product.name}
                 </h3>
                 <span className="font-sans text-sm font-medium text-stone-800 dark:text-stone-200 ml-4">
-                  ${product.price}
+                  S/ {product.price.toFixed(2)}
                 </span>
               </div>
 

@@ -122,7 +122,7 @@ const Navbar: React.FC = () => {
               to={link.path}
               onClick={() => setIsOpen(false)}
               style={{ transitionDelay: `${index * 50}ms` }}
-              className={`text-3xl font-serif tracking-[0.2em] transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'
+              className={`text-lg font-serif tracking-[0.2em] transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'
                 } ${location.pathname === link.path
                   ? 'text-stone-900 dark:text-stone-50 underline underline-offset-8'
                   : 'text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-stone-100'
@@ -141,17 +141,17 @@ const Navbar: React.FC = () => {
             onClick={toggleTheme}
             className="flex items-center gap-3 px-6 py-2 rounded-full border border-stone-200 dark:border-stone-700 text-stone-800 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
           >
-            {isDark ? (
-              <>
+            <div className="relative w-5 h-5 flex items-center justify-center">
+              <div className={`absolute transition-all duration-500 ease-in-out transform ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-50'}`}>
                 <Sun size={20} />
-                <span className="text-xs uppercase tracking-widest font-sans">Modo Claro</span>
-              </>
-            ) : (
-              <>
+              </div>
+              <div className={`absolute transition-all duration-500 ease-in-out transform ${!isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`}>
                 <Moon size={20} />
-                <span className="text-xs uppercase tracking-widest font-sans">Modo Oscuro</span>
-              </>
-            )}
+              </div>
+            </div>
+            <span className="text-xs uppercase tracking-widest font-sans w-24 text-center">
+              {isDark ? "Modo Claro" : "Modo Oscuro"}
+            </span>
           </button>
 
           <div className="flex flex-col items-center space-y-4">
