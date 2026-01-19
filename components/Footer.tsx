@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
           <a href="https://www.instagram.com/cris_l_._s" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
             <Instagram size={20} className="text-stone-800 dark:text-stone-200 group-hover:text-white dark:group-hover:text-stone-900" />
           </a>
-          <a href="mailto:contact@chrisls.com" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
+          <a href="mailto:haroldsikos@gmail.com" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
             <Mail size={20} className="text-stone-800 dark:text-stone-200 group-hover:text-white dark:group-hover:text-stone-900" />
           </a>
           <a href="https://wa.me/51972772288" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">

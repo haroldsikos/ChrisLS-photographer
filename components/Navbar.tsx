@@ -222,7 +222,7 @@ const Navbar: React.FC = () => {
               <a href="https://www.instagram.com/cris_l_._s" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
                 <Instagram size={24} strokeWidth={1.5} />
               </a>
-              <a href="mailto:contact@chrisls.com" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
+              <a href="mailto:haroldsikos@gmail.com" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
                 <Mail size={24} strokeWidth={1.5} />
               </a>
               <a href="https://wa.me/51972772288" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">

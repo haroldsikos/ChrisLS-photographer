@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Coffee, Heart, CreditCard, Smartphone } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
 
 const Tips: React.FC = () => {
     const { t } = useLanguage();
@@ -79,20 +80,49 @@ const Tips: React.FC = () => {
                     </div>
 
                     {/* Action */}
-                    <button
-                        onClick={handlePayment}
-                        disabled={!amount}
-                        className={`w-full py-4 flex items-center justify-center space-x-3 transition-all duration-300 text-xs uppercase tracking-[0.2em] ${amount
-                            ? 'bg-stone-900 text-white hover:bg-stone-700'
-                            : 'bg-stone-200 text-stone-400 cursor-not-allowed'
-                            }`}
-                    >
-                        <CreditCard size={16} />
-                        <span>{t('tips.donateBtn')}</span>
-                    </button>
+                    <div className="w-full relative z-0">
+                        {amount && Number(amount) > 0 ? (
+                            <PayPalScriptProvider options={{ "clientId": "AZ6CJIojpiu4YQKHoGsEMXams-0IN5eVSDe_pLblBnB5u8Hp07nVSS1ZyPvuX8wnAwIlVlBLQ-KbNqRx", components: "buttons", currency: "USD" }}>
+                                <PayPalButtons
+                                    style={{ layout: "vertical", shape: "rect", label: "pay" }}
+                                    createOrder={(data, actions) => {
+                                        return actions.order.create({
+                                            purchase_units: [
+                                                {
+                                                    amount: {
+                                                        value: amount.toString(),
+                                                    },
+                                                },
+                                            ],
+                                            intent: "CAPTURE"
+                                        });
+                                    }}
+                                    onApprove={async (data, actions) => {
+                                        if (actions.order) {
+                                            return actions.order.capture().then((details) => {
+                                                const payeeName = details.payer?.name?.given_name || "Supporter";
+                                                alert(`Transaction completed by ${payeeName}. Thanks for your support!`);
+                                                setAmount('');
+                                                setSelectedPreset(null);
+                                            });
+                                        }
+                                        return Promise.resolve();
+                                    }}
+                                />
+                            </PayPalScriptProvider>
+                        ) : (
+                            <button
+                                disabled={true}
+                                className="w-full py-4 flex items-center justify-center space-x-3 text-xs uppercase tracking-[0.2em] bg-stone-200 text-stone-400 cursor-not-allowed"
+                            >
+                                <CreditCard size={16} />
+                                <span>{t('tips.donateBtn')}</span>
+                            </button>
+                        )}
+                    </div>
 
                     <p className="text-center mt-6 text-[10px] text-stone-400 font-sans">
-                        {t('tips.securePayment')}
+                        Pagos procesados de forma segura vía PayPal.
                     </p>
                 </div>
 
@@ -149,7 +179,7 @@ const Tips: React.FC = () => {
                    o reemplaza todo el src="" con la ruta a tu imagen de QR real (ej: /images/yape-qr.png).
                */}
                         <img
-                            src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=https://yape.com.pe&color=1c1917"
+                            src="/images/tips/QR_Yape_ChrisLS.webp"
                             alt="QR Yape"
                             className="w-48 h-48 md:w-56 md:h-56 object-contain"
                         />
