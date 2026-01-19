@@ -1,0 +1,77 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { PageRoute } from '../types';
+
+const Home: React.FC = () => {
+  return (
+    <div className="fade-in">
+      {/* Hero Section - 5x1 Image Grid */}
+      <div className="relative h-screen w-full grid grid-cols-5 overflow-hidden">
+        {[
+          '/images/portfolio/p52.webp',
+          '/images/portfolio/p58.webp',
+          '/images/portfolio/p63.webp',
+          '/images/portfolio/p75.webp',
+          '/images/portfolio/p88.webp'
+        ].map((src, index) => (
+          <div key={index} className="relative h-full w-full overflow-hidden border-r border-white last:border-r-0">
+            <img
+              src={src}
+              alt={`Gallery strip ${index + 1}`}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
+        ))}
+
+        {/* Title Overlay */}
+        <div className="absolute inset-0 pointer-events-none flex flex-col justify-center items-center text-center p-6 z-10">
+          <h1 className="text-white font-serif text-5xl md:text-7xl lg:text-9xl mb-6 tracking-wide drop-shadow-lg">
+            Chris LS
+          </h1>
+          <p className="text-white/90 font-sans text-sm md:text-base tracking-[0.3em] uppercase max-w-2xl leading-loose drop-shadow-md">
+            Capturando atmósferas y contando historias visuales
+          </p>
+          <div className="mt-12 pointer-events-auto">
+            <Link
+              to={PageRoute.PHOTOGRAPHY}
+              className="border border-white/80 text-white px-8 py-4 text-xs tracking-[0.2em] uppercase hover:bg-white hover:text-black transition-all duration-300 backdrop-blur-sm"
+            >
+              Ver Portafolio
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Intro Section */}
+      <section className="py-24 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="font-serif text-3xl md:text-4xl mb-8 text-stone-900 dark:text-stone-100">Chris LS</h2>
+        <p className="font-serif text-xl text-stone-600 dark:text-stone-300 leading-relaxed mb-6">
+          "La fotografía no es solo capturar una imagen, es capturar una emoción."
+        </p>
+        <p className="font-sans text-sm text-stone-500 dark:text-stone-400 leading-7">
+          Soy un fotógrafo de estilo de vida y aventura con pasión por contar historias emotivas a través de mi lente.
+          Mi trabajo se centra en la luz natural, texturas ricas y una paleta cálida para crear imágenes que se sienten inmersivas y cinematográficas.
+        </p>
+      </section>
+
+      {/* Featured Grid Preview */}
+      <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
+        <Link to={PageRoute.PHOTOGRAPHY} className="relative group overflow-hidden h-full">
+          <img src="/images/home/featured_photo.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Photography" />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+            <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">FOTOGRAFÍA</span>
+          </div>
+        </Link>
+        <Link to={PageRoute.COMMERCIAL} className="relative group overflow-hidden h-full">
+          <img src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Commercial" />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
+            <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">COMERCIAL</span>
+          </div>
+        </Link>
+      </section>
+    </div>
+  );
+};
+
+export default Home;
