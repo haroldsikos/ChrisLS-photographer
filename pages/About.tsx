@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import FadeInImage from '../components/FadeInImage';
 
 const About: React.FC = () => {
   const { t } = useLanguage();
@@ -9,10 +10,11 @@ const About: React.FC = () => {
         {/* Image */}
         <div className="w-full md:w-1/2">
           <div className="aspect-[3/4] bg-stone-200 overflow-hidden relative">
-            <img
+            <FadeInImage
               src="/images/me/Christian_me.webp"
               alt="Chris LS Portrait"
               className="w-full h-full object-cover scale-[1.16]"
+              containerClassName="w-full h-full"
             />
           </div>
         </div>

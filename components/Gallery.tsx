@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Photo } from '../types';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import FadeInImage from './FadeInImage';
 
 interface GalleryProps {
   photos: Photo[];
@@ -57,11 +58,11 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
             onClick={() => handlePhotoClick(index)}
           >
             <div className="relative overflow-hidden">
-              <img
+              <FadeInImage
                 src={photo.url}
                 alt={photo.title || "Photography by Chris LS"}
                 className="w-full h-auto object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]"
-                loading="lazy"
+                containerClassName="w-full h-auto"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
               {photo.title && (

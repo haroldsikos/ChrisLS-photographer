@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { PageRoute } from '../types';
 import { useLanguage } from '../context/LanguageContext';
+import FadeInImage from '../components/FadeInImage';
 
 const Home: React.FC = () => {
   const { t } = useLanguage();
@@ -17,10 +18,11 @@ const Home: React.FC = () => {
           '/images/portfolio/p88.webp'
         ].map((src, index) => (
           <div key={index} className="relative h-full w-full overflow-hidden border-r border-white last:border-r-0">
-            <img
+            <FadeInImage
               src={src}
               alt={`Gallery strip ${index + 1}`}
               className="absolute inset-0 w-full h-full object-cover scale-[1.16]"
+              containerClassName="absolute inset-0 w-full h-full"
             />
             <div className="absolute inset-0 bg-black/40" />
           </div>
@@ -59,13 +61,13 @@ const Home: React.FC = () => {
       {/* Featured Grid Preview */}
       <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
         <Link to={PageRoute.PHOTOGRAPHY} className="relative group overflow-hidden h-full">
-          <img src="/images/home/featured_photo.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Photography" />
+          <FadeInImage src="/images/home/featured_photo.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Photography" containerClassName="w-full h-full" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
             <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredPhoto')}</span>
           </div>
         </Link>
         <Link to={PageRoute.COMMERCIAL} className="relative group overflow-hidden h-full">
-          <img src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Commercial" />
+          <FadeInImage src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Commercial" containerClassName="w-full h-full" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
             <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredCommercial')}</span>
           </div>
