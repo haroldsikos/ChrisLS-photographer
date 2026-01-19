@@ -81,9 +81,14 @@ const Navbar: React.FC = () => {
         {/* Logo */}
         <Link
           to={PageRoute.HOME}
-          className={`text-2xl font-serif tracking-widest font-semibold uppercase z-[101] relative transition-colors duration-300 ${isTransparentWithDarkBg ? 'text-white' : 'text-stone-900 dark:text-stone-100'
+          className={`flex items-center gap-3 text-2xl font-serif tracking-widest font-semibold uppercase z-[101] relative transition-colors duration-300 ${isTransparentWithDarkBg ? 'text-white' : 'text-stone-900 dark:text-stone-100'
             }`}
         >
+          <img
+            src="/images/me/Logo_ChrisLS.webp"
+            alt="Logo Chris LS"
+            className={`w-10 h-10 object-contain transition-all duration-300 ${!isTransparentWithDarkBg ? 'invert dark:invert-0' : ''}`}
+          />
           Chris LS
         </Link>
 
