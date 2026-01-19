@@ -128,27 +128,41 @@ const Shop: React.FC = () => {
         <div className="w-12 h-px bg-stone-300 dark:bg-stone-700 mx-auto mt-8"></div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-16 gap-y-24">
         {products.map((product, index) => (
           <div key={product.id} className="group flex flex-col">
             {/* Image Container */}
-            {/* Image Container / Placeholder */}
-            <div className="relative aspect-[4/5] overflow-hidden bg-stone-200 dark:bg-stone-800 mb-6 cursor-pointer flex items-center justify-center group/img" onClick={() => handleImageClick(index)}>
-              {/* Image or Solid Color Placeholder */}
-              <div className="w-full h-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center text-stone-400 dark:text-stone-600 font-serif text-2xl italic tracking-widest p-4 text-center transition-transform duration-700 scale-[1.15] group-hover/img:scale-[1.25]">
-                {product.name}
-              </div>
+            {/* Image Container / Placeholder with Card Stack Effect - Always Visible Fan */}
+            <div className="relative aspect-[4/5] mb-8 cursor-pointer group/card perspective-1000" onClick={() => handleImageClick(index)}>
 
-              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 transition-colors duration-300" />
+              {/* Back Card 2 (Right Fan) - Always visible but tighter, expands on hover */}
+              <div className="absolute inset-0 bg-stone-200 dark:bg-stone-700/60 rounded-sm transform transition-all duration-500 ease-out origin-bottom-right rotate-3 translate-x-2 group-hover/card:rotate-6 group-hover/card:translate-x-4 shadow-sm" />
 
-              {/* Expand Icon */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 text-stone-600 dark:text-stone-400 drop-shadow-sm">
-                <Maximize2 size={20} />
-              </div>
+              {/* Back Card 1 (Left Fan) - Always visible, expands on hover */}
+              <div className="absolute inset-0 bg-stone-300 dark:bg-stone-600/60 rounded-sm transform transition-all duration-500 ease-out origin-bottom-left -rotate-2 -translate-x-1 group-hover/card:-rotate-3 group-hover/card:-translate-x-3 shadow-md" />
 
-              {/* Type Tag */}
-              <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 text-[10px] tracking-widest uppercase font-medium text-stone-900 dark:text-stone-100 z-10">
-                {product.type}
+              {/* Main Front Card */}
+              <div className="relative z-10 w-full h-full overflow-hidden bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-lg transition-all duration-500 ease-out group-hover/card:-translate-y-2 group-hover/card:shadow-2xl flex items-center justify-center">
+
+                {/* Content inside the card */}
+                <div className="w-full h-full flex items-center justify-center p-6 text-center">
+                  <span className="font-serif text-2xl italic tracking-widest text-stone-400 dark:text-stone-500 group-hover/card:text-stone-800 dark:group-hover/card:text-stone-300 transition-colors duration-500">
+                    {product.name}
+                  </span>
+                </div>
+
+                {/* Subtle sheen effect */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-white/0 via-white/0 to-white/20 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none" />
+
+                {/* Expand Icon */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover/card:opacity-100 transition-all duration-500 -translate-y-2 group-hover/card:translate-y-0 text-stone-400 dark:text-stone-500">
+                  <Maximize2 size={20} />
+                </div>
+
+                {/* Type Tag */}
+                <div className="absolute top-4 left-4 bg-stone-900/5 dark:bg-white/5 backdrop-blur-sm px-3 py-1 text-[10px] tracking-widest uppercase font-medium text-stone-500 dark:text-stone-400 border border-stone-200/50 dark:border-stone-700/50">
+                  {product.type}
+                </div>
               </div>
             </div>
 
