@@ -24,12 +24,14 @@ const Contact: React.FC = () => {
       },
       body: JSON.stringify({
         name: formData.name,
-        email: formData.email,
+        email: formData.email.trim(),
         phone: formData.phone,
         country: formData.country,
         message: formData.message,
         _subject: `Nuevo mensaje de ${formData.name} - Chris LS Web`,
-        _cc: formData.email
+        _replyto: formData.email.trim(),
+        _cc: formData.email.trim(),
+        _template: "table"
       })
     })
       .then(response => response.json())
