@@ -7,10 +7,16 @@ export interface Photo {
   height?: number;
 }
 
+export interface PortfolioCategory {
+  id: string;
+  titleKey: string;
+  descriptionKey: string;
+  coverImage: string;
+}
+
 export enum PageRoute {
   HOME = '/',
   PHOTOGRAPHY = '/fotografia',
-  COMMERCIAL = '/comercial',
   SHOP = '/tienda',
   ABOUT = '/sobre-mi',
   CONTACT = '/contacto',

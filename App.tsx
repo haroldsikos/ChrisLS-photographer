@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Portfolio from './pages/Portfolio';
+import CategoryGallery from './pages/CategoryGallery';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Tips from './pages/Tips';
@@ -40,14 +41,8 @@ const App: React.FC = () => {
         <Layout>
           <Routes>
             <Route path={PageRoute.HOME} element={<Home />} />
-            <Route
-              path={PageRoute.PHOTOGRAPHY}
-              element={<Portfolio title="Fotografía" subtitle="Colección Seleccionada" category="photo" />}
-            />
-            <Route
-              path={PageRoute.COMMERCIAL}
-              element={<Portfolio title="Comercial" subtitle="Productos & Interiores" category="commercial" />}
-            />
+            <Route path={PageRoute.PHOTOGRAPHY} element={<Portfolio />} />
+            <Route path={`${PageRoute.PHOTOGRAPHY}/:categoryId`} element={<CategoryGallery />} />
             <Route path={PageRoute.SHOP} element={<Shop />} />
             <Route path={PageRoute.ABOUT} element={<About />} />
             <Route path={PageRoute.CONTACT} element={<Contact />} />

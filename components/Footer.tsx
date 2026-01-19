@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Mail, Twitter, MessageCircle } from 'lucide-react';
+import { Instagram, Mail, Facebook } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { PageRoute } from '../types';
 import { useLanguage } from '../context/LanguageContext';
@@ -22,12 +22,33 @@ const Footer: React.FC = () => {
 
         {/* Social Icons */}
         <div className="flex space-x-6">
+          {/* Facebook */}
+          <a href="https://www.facebook.com/share/18DusMowtr/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
+            <Facebook size={20} className="text-stone-800 dark:text-stone-200 group-hover:text-white dark:group-hover:text-stone-900" />
+          </a>
+
+          {/* Instagram */}
           <a href="https://www.instagram.com/cris_l_._s" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
             <Instagram size={20} className="text-stone-800 dark:text-stone-200 group-hover:text-white dark:group-hover:text-stone-900" />
           </a>
-          <a href="mailto:haroldsikos@gmail.com" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
+
+          {/* TikTok */}
+          <a href="https://www.tiktok.com/@cris.lsfotografo?_r=1&_t=ZS-93D8QM0tokU" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
+            <svg
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-5 h-5 text-stone-800 dark:text-stone-200 group-hover:text-white dark:group-hover:text-stone-900 transition-colors"
+            >
+              <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+            </svg>
+          </a>
+
+          {/* Mail */}
+          <a href="mailto:Warcristian01@gmail.com" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
             <Mail size={20} className="text-stone-800 dark:text-stone-200 group-hover:text-white dark:group-hover:text-stone-900" />
           </a>
+
+          {/* WhatsApp */}
           <a href="https://wa.me/51972772288" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center border border-stone-800 dark:border-stone-400 rounded-full hover:bg-stone-800 hover:text-white dark:hover:bg-stone-200 dark:hover:text-stone-900 transition-all duration-300 group">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +70,7 @@ const Footer: React.FC = () => {
 
         {/* Copyright */}
         <div className="text-stone-400 dark:text-stone-600 text-xs font-sans">
-          &copy; {new Date().getFullYear()} Chris LS Photography. {t('footer.rights')}
+          &copy; {new Date().getFullYear()} Cris L.S Photography. {t('footer.rights')}
         </div>
       </div>
     </footer>

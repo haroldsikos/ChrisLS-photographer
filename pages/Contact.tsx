@@ -28,7 +28,7 @@ const Contact: React.FC = () => {
         phone: formData.phone,
         country: formData.country,
         message: formData.message,
-        _subject: `Nuevo mensaje de ${formData.name} - Chris LS Web`,
+        _subject: `Nuevo mensaje de ${formData.name} - Cris L.S Web`,
         _replyto: formData.email.trim(),
         _cc: formData.email.trim(),
         _template: "table"

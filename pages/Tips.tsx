@@ -179,14 +179,14 @@ const Tips: React.FC = () => {
                    o reemplaza todo el src="" con la ruta a tu imagen de QR real (ej: /images/yape-qr.png).
                */}
                         <img
-                            src="/images/tips/QR_Yape_ChrisLS.webp"
+                            src="/images/tips/QR_Yape_CrisLS.webp"
                             alt="QR Yape"
                             className="w-48 h-48 md:w-56 md:h-56 object-contain"
                         />
                     </div>
 
                     <div className="space-y-1 relative z-10 mt-auto">
-                        <p className="font-serif text-xl tracking-wide">Chris LS</p>
+                        <p className="font-serif text-xl tracking-wide">Cris L.S</p>
                         <p className="font-sans text-sm text-white/50 tracking-widest">+51 972 772 288</p>
                     </div>
 

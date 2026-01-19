@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Instagram, Mail, Moon, Sun } from 'lucide-react';
+import { Menu, X, Instagram, Mail, Moon, Sun, Facebook } from 'lucide-react';
 import { PageRoute } from '../types';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -62,7 +62,6 @@ const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: t('nav.photography'), path: PageRoute.PHOTOGRAPHY },
-    { label: t('nav.commercial'), path: PageRoute.COMMERCIAL },
     { label: t('nav.shop'), path: PageRoute.SHOP },
     { label: t('nav.about'), path: PageRoute.ABOUT },
     { label: t('nav.contact'), path: PageRoute.CONTACT },
@@ -85,11 +84,11 @@ const Navbar: React.FC = () => {
             }`}
         >
           <img
-            src="/images/me/Logo_ChrisLS.webp"
-            alt="Logo Chris LS"
+            src="/images/me/Logo_CrisLS.webp"
+            alt="Logo Cris L.S"
             className={`w-10 h-10 object-contain transition-all duration-300 ${!isTransparentWithDarkBg ? 'invert dark:invert-0' : ''}`}
           />
-          Chris LS
+          Cris L.S
         </Link>
 
         {/* Desktop Menu */}
@@ -223,13 +222,34 @@ const Navbar: React.FC = () => {
 
           <div className="flex flex-col items-center space-y-4">
             <p className="text-stone-400 text-xs tracking-widest uppercase font-sans">{t('footer.contact')}</p>
-            <div className="flex space-x-8 text-stone-900 dark:text-stone-200">
+            <div className="flex space-x-6 text-stone-900 dark:text-stone-200">
+              {/* Facebook */}
+              <a href="https://www.facebook.com/share/18DusMowtr/" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
+                <Facebook size={24} strokeWidth={1.5} />
+              </a>
+
+              {/* Instagram */}
               <a href="https://www.instagram.com/cris_l_._s" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
                 <Instagram size={24} strokeWidth={1.5} />
               </a>
-              <a href="mailto:haroldsikos@gmail.com" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
+
+              {/* TikTok */}
+              <a href="https://www.tiktok.com/@cris.lsfotografo?_r=1&_t=ZS-93D8QM0tokU" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
+              </a>
+
+              {/* Mail */}
+              <a href="mailto:Warcristian01@gmail.com" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
                 <Mail size={24} strokeWidth={1.5} />
               </a>
+
+              {/* WhatsApp */}
               <a href="https://wa.me/51972772288" target="_blank" rel="noopener noreferrer" className="p-2 border border-stone-200 dark:border-stone-700 rounded-full hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

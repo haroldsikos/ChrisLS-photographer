@@ -59,17 +59,21 @@ const Home: React.FC = () => {
       </section>
 
       {/* Featured Grid Preview */}
-      <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
-        <Link to={PageRoute.PHOTOGRAPHY} className="relative group overflow-hidden h-full">
+      {/* Featured Grid Preview */}
+      <section className="h-[80vh] w-full grid grid-cols-1 md:grid-cols-2">
+        {/* Photography Link */}
+        <Link to={PageRoute.PHOTOGRAPHY} className="relative group overflow-hidden h-full block">
           <FadeInImage src="/images/home/featured_photo.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Photography" containerClassName="w-full h-full" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
             <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredPhoto')}</span>
           </div>
         </Link>
-        <Link to={PageRoute.COMMERCIAL} className="relative group overflow-hidden h-full">
-          <FadeInImage src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Commercial" containerClassName="w-full h-full" />
+
+        {/* Shop Link */}
+        <Link to={PageRoute.SHOP} className="relative group overflow-hidden h-full block">
+          <FadeInImage src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Shop" containerClassName="w-full h-full" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
-            <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredCommercial')}</span>
+            <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredShop')}</span>
           </div>
         </Link>
       </section>

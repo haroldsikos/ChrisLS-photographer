@@ -57,12 +57,12 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
             className="break-inside-avoid mb-6 group cursor-pointer"
             onClick={() => handlePhotoClick(index)}
           >
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-hidden aspect-[2/3]">
               <FadeInImage
                 src={photo.url}
-                alt={photo.title || "Photography by Chris LS"}
-                className="w-full h-auto object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]"
-                containerClassName="w-full h-auto"
+                alt={photo.title || "Photography by Cris L.S"}
+                className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]"
+                containerClassName="w-full h-full"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
               {photo.title && (
@@ -137,12 +137,30 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
           <div
             className="relative max-w-7xl max-h-[90vh] w-full flex flex-col items-center justify-center"
             onClick={(e) => e.stopPropagation()}
+            onContextMenu={(e) => {
+              e.preventDefault();
+              const el = document.getElementById('lightbox-watermark');
+              if (el) {
+                el.style.opacity = '1';
+                setTimeout(() => { el.style.opacity = '0'; }, 2000);
+              }
+            }}
           >
+            {/* Visual Watermark Overlay for Lightbox */}
+            <div
+              id="lightbox-watermark"
+              className="absolute inset-0 z-20 flex items-center justify-center pointer-events-none transition-opacity duration-500 opacity-0"
+            >
+              <div className="bg-black/50 backdrop-blur-sm px-6 py-3 rounded-sm border border-white/20">
+                <p className="font-serif text-white text-xl tracking-widest uppercase">© Cris L.S</p>
+              </div>
+            </div>
             <img
               key={selectedPhoto.id} // Re-mount key for animation
               src={selectedPhoto.url}
               alt={selectedPhoto.title}
-              className="max-h-[80vh] w-auto object-contain shadow-2xl rounded-sm fade-in"
+              className="max-h-[80vh] w-auto object-contain shadow-2xl rounded-sm fade-in select-none"
+              draggable={false}
               style={{ animationDuration: '0.3s' }}
             />
             <div className="mt-6 text-center text-white">

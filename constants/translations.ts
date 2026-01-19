@@ -1,8 +1,20 @@
 export const translations = {
     es: {
+        categories: {
+            culture: { title: 'CULTURA', desc: 'Tradiciones vivas y herencia ancestral.' },
+            landscape: { title: 'PAISAJE', desc: 'La inmensidad de los Andes y más allá.' },
+            city: { title: 'CIUDAD', desc: 'Ritmos urbanos y arquitectura.' },
+            food: { title: 'GASTRONOMÍA', desc: 'Sabores y texturas de nuestra tierra.' },
+            animals: { title: 'FAUNA', desc: 'Vida silvestre en su hábitat natural.' },
+            trekking: { title: 'TREKKING', desc: 'El camino es el destino.' },
+            wedding: { title: 'BODAS', desc: 'Momentos eternos de amor.' },
+            casual: { title: 'CASUAL', desc: 'Espontaneidad y estilo diario.' },
+            models: { title: 'MODELOS', desc: 'Moda y expresión artística.' },
+            sessions: { title: 'SESIONES', desc: 'Retratos personales y profesionales.' },
+            commercial: { title: 'COMERCIAL', desc: 'Imágenes para marcas y negocios.' },
+        },
         nav: {
             photography: 'FOTOGRAFÍA',
-            commercial: 'COMERCIAL',
             shop: 'TIENDA',
             about: 'SOBRE MÍ',
             contact: 'CONTACTO',
@@ -11,14 +23,14 @@ export const translations = {
             toggleThemeLight: 'Modo Claro',
         },
         home: {
-            title: 'Chris LS',
+            title: 'Cris L.S',
             subtitle: 'Capturando atmósferas y contando historias visuales',
             cta: 'Ver Portafolio',
-            introTitle: 'Chris LS',
+            introTitle: 'Cris L.S',
             introQuote: '"La fotografía no es solo capturar una imagen, es capturar una emoción."',
-            introText: 'Soy Christian Layme Sikos, cariñosamente conocido como Chris LS. Nacido en la histórica tierra de PISAC, Cusco, mi pasión se centra en destacar la belleza inigualable del Perú y capturar momentos inolvidables. A través de mi lente, busco eternizar la esencia de los paisajes y las emociones humanas con profesionalismo y una visión artística única.',
+            introText: 'Soy Cristian Layme Sikos, cariñosamente conocido como Cris L.S. Nacido en la histórica tierra de PISAC, Cusco, mi pasión se centra en destacar la belleza inigualable del Perú y capturar momentos inolvidables. A través de mi lente, busco eternizar la esencia de los paisajes y las emociones humanas con profesionalismo y una visión artística única.',
             featuredPhoto: 'FOTOGRAFÍA',
-            featuredCommercial: 'COMERCIAL',
+            featuredShop: 'TIENDA',
         },
         shop: {
             title: 'Tienda',
@@ -63,7 +75,7 @@ export const translations = {
         about: {
             title: 'Sobre Mí',
             subtitle: 'Fotógrafo | Videógrafo | Creador',
-            p1: 'Hola, soy Christian Layme Sikos (Chris LS), nacido en el corazón de PISAC, Cusco.',
+            p1: 'Hola, soy Cristian Layme Sikos (Cris L.S), nacido en el corazón de PISAC, Cusco.',
             p2: 'Desde muy joven, mi pasión ha sido mostrar al mundo la belleza oculta y majestuosa del Perú. Me dedico a capturar momentos inolvidables, combinando el impresionante entorno natural de los Andes con la emoción genuina de las personas.',
             p3: 'Mi enfoque profesional busca ir más allá de una simple imagen; busco narrar historias visuales que transmitan la esencia misma de nuestra tierra y cultura. Utilizo la luz natural y texturas ricas para crear composiciones que se sienten vivas y atemporales.',
             p4: 'Ya sea en las alturas de una montaña sagrada o en la intimidad de un retrato, mi objetivo es evocar el alma de cada momento con honestidad y poder visual.',
@@ -102,9 +114,21 @@ export const translations = {
         }
     },
     en: {
+        categories: {
+            culture: { title: 'CULTURE', desc: 'Living traditions and ancestral heritage.' },
+            landscape: { title: 'LANDSCAPE', desc: 'The immensity of the Andes and beyond.' },
+            city: { title: 'CITY', desc: 'Urban rhythms and architecture.' },
+            food: { title: 'FOOD', desc: 'Flavors and textures of our land.' },
+            animals: { title: 'WILDLIFE', desc: 'Nature in its purest form.' },
+            trekking: { title: 'TREKKING', desc: 'The journey is the destination.' },
+            wedding: { title: 'WEDDINGS', desc: 'Eternal moments of love.' },
+            casual: { title: 'CASUAL', desc: 'Spontaneity and daily style.' },
+            models: { title: 'MODELS', desc: 'Fashion and artistic expression.' },
+            sessions: { title: 'SESSIONS', desc: 'Personal and professional portraits.' },
+            commercial: { title: 'COMMERCIAL', desc: 'Images for brands and businesses.' },
+        },
         nav: {
             photography: 'PHOTOGRAPHY',
-            commercial: 'COMMERCIAL',
             shop: 'SHOP',
             about: 'ABOUT ME',
             contact: 'CONTACT',
@@ -113,14 +137,14 @@ export const translations = {
             toggleThemeLight: 'Light Mode',
         },
         home: {
-            title: 'Chris LS',
+            title: 'Chris L.S',
             subtitle: 'Capturing atmospheres and telling visual stories',
             cta: 'View Portfolio',
-            introTitle: 'Chris LS',
+            introTitle: 'Chris L.S',
             introQuote: '"Photography is not just capturing an image, it is capturing an emotion."',
-            introText: 'I am Christian Layme Sikos, affectionately known as Chris LS. Born in the historic land of PISAC, Cusco, my passion centers on highlighting the unparalleled beauty of Peru and capturing unforgettable moments. Through my lens, I seek to eternalize the essence of landscapes and human emotions with professionalism and a unique artistic vision.',
+            introText: 'I am Cristian Layme Sikos, affectionately known as Chris L.S. Born in the historic land of PISAC, Cusco, my passion centers on highlighting the unparalleled beauty of Peru and capturing unforgettable moments. Through my lens, I seek to eternalize the essence of landscapes and human emotions with professionalism and a unique artistic vision.',
             featuredPhoto: 'PHOTOGRAPHY',
-            featuredCommercial: 'COMMERCIAL',
+            featuredShop: 'SHOP',
         },
         shop: {
             title: 'Shop',
@@ -165,7 +189,7 @@ export const translations = {
         about: {
             title: 'About Me',
             subtitle: 'Photographer | Videographer | Creator',
-            p1: 'Hi, I am Christian Layme Sikos (Chris LS), born in the heart of PISAC, Cusco.',
+            p1: 'Hi, I am Cristian Layme Sikos (Cris L.S), born in the heart of PISAC, Cusco.',
             p2: 'Since a young age, my passion has been to show the world the hidden and majestic beauty of Peru. I dedicate myself to capturing unforgettable moments, blending the stunning natural environment of the Andes with genuine human emotion.',
             p3: 'My professional approach seeks to go beyond a simple image; I aim to narrate visual stories that convey the very essence of our land and culture. I use natural light and rich textures to create compositions that feel alive and timeless.',
             p4: 'Whether on the heights of a sacred mountain or in the intimacy of a portrait, my goal is to evoke the soul of each moment with honesty and visual power.',
