@@ -22,49 +22,49 @@ const Shop: React.FC = () => {
     {
       id: 1,
       name: t('shop.products.1.name'),
-      type: t('shop.type.print'),
-      price: 45.00,
-      image: "/images/shop/shop_1.webp",
+      type: t('shop.type.service'),
+      price: 1500.00,
+      image: "https://placehold.co/600x800/F5F5F4/57534E?text=Wedding",
       description: t('shop.products.1.desc')
     },
     {
       id: 2,
       name: t('shop.products.2.name'),
-      type: t('shop.type.digital'),
-      price: 25.00,
-      image: "/images/shop/shop_2.webp",
+      type: t('shop.type.service'),
+      price: 350.00,
+      image: "https://placehold.co/600x800/F5F5F4/57534E?text=Maternity",
       description: t('shop.products.2.desc')
     },
     {
       id: 3,
       name: t('shop.products.3.name'),
       type: t('shop.type.service'),
-      price: 150.00,
-      image: "/images/shop/shop_3.webp",
+      price: 450.00,
+      image: "https://placehold.co/600x800/F5F5F4/57534E?text=Couple",
       description: t('shop.products.3.desc')
     },
     {
       id: 4,
       name: t('shop.products.4.name'),
-      type: t('shop.type.print'),
-      price: 60.00,
-      image: "/images/shop/shop_4.webp",
+      type: t('shop.type.service'),
+      price: 250.00,
+      image: "https://placehold.co/600x800/F5F5F4/57534E?text=Portrait",
       description: t('shop.products.4.desc')
     },
     {
       id: 5,
       name: t('shop.products.5.name'),
-      type: t('shop.type.education'),
-      price: 80.00,
-      image: "/images/shop/shop_5.webp",
+      type: t('shop.type.service'),
+      price: 600.00,
+      image: "https://placehold.co/600x800/F5F5F4/57534E?text=Event",
       description: t('shop.products.5.desc')
     },
     {
       id: 6,
       name: t('shop.products.6.name'),
-      type: t('shop.type.physical'),
-      price: 35.00,
-      image: "/images/shop/shop_6.webp",
+      type: t('shop.type.print'),
+      price: 120.00,
+      image: "https://placehold.co/600x800/F5F5F4/57534E?text=Fine+Art+Print",
       description: t('shop.products.6.desc')
     }
   ];
@@ -132,22 +132,22 @@ const Shop: React.FC = () => {
         {products.map((product, index) => (
           <div key={product.id} className="group flex flex-col">
             {/* Image Container */}
-            <div className="relative aspect-[4/5] overflow-hidden bg-stone-100 dark:bg-stone-800 mb-6 cursor-pointer" onClick={() => handleImageClick(index)}>
-              <img
-                src={product.image}
-                alt={product.name}
-                onError={handleImageError}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-300" />
+            {/* Image Container / Placeholder */}
+            <div className="relative aspect-[4/5] overflow-hidden bg-stone-200 dark:bg-stone-800 mb-6 cursor-pointer flex items-center justify-center group/img" onClick={() => handleImageClick(index)}>
+              {/* Image or Solid Color Placeholder */}
+              <div className="w-full h-full bg-stone-200 dark:bg-stone-800 flex items-center justify-center text-stone-400 dark:text-stone-600 font-serif text-2xl italic tracking-widest p-4 text-center transition-transform duration-700 scale-[1.15] group-hover/img:scale-[1.25]">
+                {product.name}
+              </div>
+
+              <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/5 transition-colors duration-300" />
 
               {/* Expand Icon */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-white drop-shadow-md">
+              <div className="absolute top-4 right-4 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 text-stone-600 dark:text-stone-400 drop-shadow-sm">
                 <Maximize2 size={20} />
               </div>
 
               {/* Type Tag */}
-              <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 text-[10px] tracking-widest uppercase font-medium text-stone-900 dark:text-stone-100">
+              <div className="absolute top-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm px-3 py-1 text-[10px] tracking-widest uppercase font-medium text-stone-900 dark:text-stone-100 z-10">
                 {product.type}
               </div>
             </div>
@@ -169,7 +169,7 @@ const Shop: React.FC = () => {
 
               <a
                 href={getWhatsAppUrl(product)}
-                className="w-full py-3 border border-stone-200 dark:border-stone-700 hover:border-stone-900 dark:hover:border-stone-100 hover:bg-stone-900 dark:hover:bg-customDark hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.2em] flex items-center justify-center space-x-2 group/btn text-stone-900 dark:text-stone-200"
+                className="w-full py-3 border border-stone-200 dark:border-stone-700 hover:border-stone-900 dark:hover:border-white hover:bg-stone-900 dark:hover:bg-white hover:text-white dark:hover:text-stone-900 transition-all duration-300 text-xs uppercase tracking-[0.2em] flex items-center justify-center space-x-2 group/btn text-stone-900 dark:text-stone-200"
               >
                 <span>{t('shop.consultLink')}</span>
                 <ArrowUpRight size={14} className="opacity-50 group-hover/btn:opacity-100" />

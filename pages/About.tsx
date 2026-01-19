@@ -12,7 +12,7 @@ const About: React.FC = () => {
             <img
               src="/images/me/Christian_me.webp"
               alt="Chris LS Portrait"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover scale-[1.16]"
             />
           </div>
         </div>

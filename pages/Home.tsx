@@ -20,7 +20,7 @@ const Home: React.FC = () => {
             <img
               src={src}
               alt={`Gallery strip ${index + 1}`}
-              className="absolute inset-0 w-full h-full object-cover"
+              className="absolute inset-0 w-full h-full object-cover scale-[1.16]"
             />
             <div className="absolute inset-0 bg-black/40" />
           </div>
@@ -59,13 +59,13 @@ const Home: React.FC = () => {
       {/* Featured Grid Preview */}
       <section className="grid grid-cols-1 md:grid-cols-2 h-[80vh]">
         <Link to={PageRoute.PHOTOGRAPHY} className="relative group overflow-hidden h-full">
-          <img src="/images/home/featured_photo.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Photography" />
+          <img src="/images/home/featured_photo.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Photography" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
             <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredPhoto')}</span>
           </div>
         </Link>
         <Link to={PageRoute.COMMERCIAL} className="relative group overflow-hidden h-full">
-          <img src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Commercial" />
+          <img src="/images/home/featured_commercial.webp" className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]" alt="Commercial" />
           <div className="absolute inset-0 flex items-center justify-center bg-black/30 group-hover:bg-black/40 transition-colors">
             <span className="text-white font-serif text-3xl tracking-widest border-b border-transparent group-hover:border-white pb-2 transition-all">{t('home.featuredCommercial')}</span>
           </div>

@@ -60,7 +60,7 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
               <img
                 src={photo.url}
                 alt={photo.title || "Photography by Chris LS"}
-                className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
+                className="w-full h-auto object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]"
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />

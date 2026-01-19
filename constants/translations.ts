@@ -35,28 +35,28 @@ export const translations = {
             },
             products: {
                 1: {
-                    name: "Print: Atardecer Andino",
-                    desc: "Impresión Giclée en papel de algodón de 30x40cm. Edición limitada."
+                    name: "Sesión: Boda Civil / Religiosa",
+                    desc: "Cobertura completa de tu día especial. Estilo documental y artístico. Entrega de 500+ fotos editadas."
                 },
                 2: {
-                    name: "Pack Presets: Nostalgia",
-                    desc: "Colección de 10 presets para Lightroom Desktop & Mobile. Estilo cinematográfico."
+                    name: "Sesión: Maternidad",
+                    desc: "Captura la dulce espera en exteriores naturales. 1 hora de sesión y 30 fotos editadas en alta resolución."
                 },
                 3: {
-                    name: "Sesión Retrato: Esencia",
-                    desc: "Sesión de 1 hora en exteriores. Entrega de 20 fotos editadas en alta resolución."
+                    name: "Sesión: Pareja / Pre-Boda",
+                    desc: "Una tarde de conexión y amor. Ideal para Save The Date. 2 horas de sesión en locación a elegir."
                 },
                 4: {
-                    name: "Print: Océano Profundo",
-                    desc: "Impresión gran formato 50x70cm. Papel mate de alta calidad."
+                    name: "Sesión: Retrato Personal",
+                    desc: "Potencia tu marca personal o celebra tu esencia. 1 hora de sesión, 2 cambios de look."
                 },
                 5: {
-                    name: "Mentoria 1:1",
-                    desc: "Revisión de portafolio y dirección creativa por videollamada (60 min)."
+                    name: "Pack: Cobertura de Evento",
+                    desc: "Para eventos corporativos, cumpleaños o celebraciones familiares. Fotografía dinámica y de alta calidad."
                 },
                 6: {
-                    name: "Zine: Caminos",
-                    desc: "Fotolibro de tapa blanda con 40 páginas de fotografía documental de viajes."
+                    name: "Print: Paisajes del Perú",
+                    desc: "Lleva la magia de los Andes a tu hogar. Impresión Fine Art certificada. Varios tamaños disponibles."
                 }
             }
         },
@@ -137,28 +137,28 @@ export const translations = {
             },
             products: {
                 1: {
-                    name: "Print: Andean Sunset",
-                    desc: "Giclée print on 30x40cm cotton paper. Limited edition."
+                    name: "Session: Civil / Religious Wedding",
+                    desc: "Complete coverage of your special day. Documentary and artistic style. Delivery of 500+ edited photos."
                 },
                 2: {
-                    name: "Presets Pack: Nostalgia",
-                    desc: "Collection of 10 presets for Lightroom Desktop & Mobile. Cinematic style."
+                    name: "Session: Maternity",
+                    desc: "Capture the sweet wait in natural outdoors. 1 hour session and 30 high resolution edited photos."
                 },
                 3: {
-                    name: "Portrait Session: Essence",
-                    desc: "1 hour outdoor session. Delivery of 20 high-resolution edited photos."
+                    name: "Session: Couple / Pre-Wedding",
+                    desc: "An afternoon of connection and love. Ideal for Save The Date. 2 hours session at location of choice."
                 },
                 4: {
-                    name: "Print: Deep Ocean",
-                    desc: "Large format print 50x70cm. High quality matte paper."
+                    name: "Session: Personal Portrait",
+                    desc: "Boost your personal brand or celebrate your essence. 1 hour session, 2 outfit changes."
                 },
                 5: {
-                    name: "Mentorship 1:1",
-                    desc: "Portfolio review and creative direction via video call (60 min)."
+                    name: "Pack: Event Coverage",
+                    desc: "For corporate events, birthdays or family celebrations. Dynamic and high quality photography."
                 },
                 6: {
-                    name: "Zine: Pathways",
-                    desc: "Softcover photobook with 40 pages of documentary travel photography."
+                    name: "Print: Landscapes of Peru",
+                    desc: "Bring the magic of the Andes to your home. Certified Fine Art Print. Various sizes available."
                 }
             }
         },
