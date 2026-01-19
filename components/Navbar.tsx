@@ -184,35 +184,37 @@ const Navbar: React.FC = () => {
         {/* Bottom Footer in Menu - Centered, Fade Only */}
         <div className={`mt-12 flex flex-col items-center space-y-8 transition-all duration-700 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
 
-          {/* Mobile Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="flex items-center gap-3 px-6 py-2 rounded-full border border-stone-200 dark:border-stone-700 text-stone-800 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
-          >
-            <div className="relative w-5 h-5 flex items-center justify-center">
-              <div className={`absolute transition-all duration-500 ease-in-out transform ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-50'}`}>
-                <Sun size={20} />
+          <div className="flex flex-row items-center justify-center gap-6 w-full px-6">
+            {/* Mobile Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="flex items-center gap-3 px-4 py-2 rounded-full border border-stone-200 dark:border-stone-700 text-stone-800 dark:text-stone-200 hover:bg-stone-100 dark:hover:bg-stone-800 transition-colors"
+            >
+              <div className="relative w-5 h-5 flex items-center justify-center">
+                <div className={`absolute transition-all duration-500 ease-in-out transform ${isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-90 scale-50'}`}>
+                  <Sun size={20} />
+                </div>
+                <div className={`absolute transition-all duration-500 ease-in-out transform ${!isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`}>
+                  <Moon size={20} />
+                </div>
               </div>
-              <div className={`absolute transition-all duration-500 ease-in-out transform ${!isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'}`}>
-                <Moon size={20} />
-              </div>
-            </div>
-            <span className="text-xs uppercase tracking-widest font-sans w-24 text-center">
-              {isDark ? t('nav.toggleThemeLight') : t('nav.toggleTheme')}
-            </span>
-          </button>
+              <span className="text-xs uppercase tracking-widest font-sans text-center">
+                {isDark ? t('nav.toggleThemeLight') : t('nav.toggleTheme')}
+              </span>
+            </button>
 
-          {/* Mobile Language Toggle */}
-          <button
-            onClick={() => setLanguage(prev => prev === 'es' ? 'en' : 'es')}
-            className="text-stone-800 dark:text-stone-200 hover:text-stone-500 dark:hover:text-white transition-colors"
-          >
-            <span className="text-sm tracking-[0.2em] font-serif border border-stone-300 dark:border-stone-700 rounded-full px-6 py-2 flex items-center gap-2">
-              <span className={language === 'es' ? 'font-bold' : 'opacity-50'}>ES</span>
-              <span className="opacity-30">|</span>
-              <span className={language === 'en' ? 'font-bold' : 'opacity-50'}>EN</span>
-            </span>
-          </button>
+            {/* Mobile Language Toggle */}
+            <button
+              onClick={() => setLanguage(prev => prev === 'es' ? 'en' : 'es')}
+              className="text-stone-800 dark:text-stone-200 hover:text-stone-500 dark:hover:text-white transition-colors"
+            >
+              <span className="text-sm tracking-[0.2em] font-serif border border-stone-300 dark:border-stone-700 rounded-full px-5 py-2 flex items-center gap-2">
+                <span className={language === 'es' ? 'font-bold' : 'opacity-50'}>ES</span>
+                <span className="opacity-30">|</span>
+                <span className={language === 'en' ? 'font-bold' : 'opacity-50'}>EN</span>
+              </span>
+            </button>
+          </div>
 
           <div className="flex flex-col items-center space-y-4">
             <p className="text-stone-400 text-xs tracking-widest uppercase font-sans">{t('footer.contact')}</p>

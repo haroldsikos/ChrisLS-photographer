@@ -75,17 +75,16 @@ const Shop: React.FC = () => {
     console.warn(`Failed to load image: ${e.currentTarget.src}`);
   };
 
-  const handleBuyClick = (e: React.MouseEvent, product: Product) => {
-    e.stopPropagation();
-    e.preventDefault();
+  const getWhatsAppUrl = (product: Product) => {
     const message = `Hola Chris LS, estoy interesado en el producto: ${product.name} (Precio ref: S/ ${product.price.toFixed(2)}). ¿Me podrías dar más información?`;
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-    window.open(url, '_blank', 'noopener,noreferrer');
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
   };
 
   const handleImageClick = (index: number) => {
     setSelectedProductIndex(index);
   };
+
+  // ... (keeping existing useCallback/useEffect hooks for lightbox)
 
   const closeLightbox = useCallback(() => {
     setSelectedProductIndex(null);
@@ -168,13 +167,13 @@ const Shop: React.FC = () => {
                 {product.description}
               </p>
 
-              <button
-                onClick={(e) => handleBuyClick(e, product)}
+              <a
+                href={getWhatsAppUrl(product)}
                 className="w-full py-3 border border-stone-200 dark:border-stone-700 hover:border-stone-900 dark:hover:border-stone-100 hover:bg-stone-900 dark:hover:bg-customDark hover:text-white transition-all duration-300 text-xs uppercase tracking-[0.2em] flex items-center justify-center space-x-2 group/btn text-stone-900 dark:text-stone-200"
               >
                 <span>{t('shop.consultLink')}</span>
                 <ArrowUpRight size={14} className="opacity-50 group-hover/btn:opacity-100" />
-              </button>
+              </a>
             </div>
           </div>
         ))}
@@ -257,12 +256,12 @@ const Shop: React.FC = () => {
               <p className="font-serif text-2xl italic tracking-wide">{selectedProduct.name}</p>
               <p className="text-xs font-sans uppercase tracking-[0.2em] mt-2 text-stone-400">{selectedProduct.type}</p>
               {/* Optional: Add a button to buy directly from lightbox */}
-              <button
-                onClick={(e) => handleBuyClick(e, selectedProduct)}
-                className="mt-4 px-6 py-2 border border-white/30 hover:bg-white hover:text-stone-900 transition-colors text-xs uppercase tracking-[0.2em]"
+              <a
+                href={getWhatsAppUrl(selectedProduct)}
+                className="mt-4 px-6 py-2 border border-white/30 hover:bg-white hover:text-stone-900 transition-colors text-xs uppercase tracking-[0.2em] inline-block"
               >
                 {t('shop.consultLink')}
-              </button>
+              </a>
             </div>
           </div>
         </div>
