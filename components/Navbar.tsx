@@ -123,18 +123,18 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay - Pure Fade, Full Screen Coverage */}
-      <div className={`fixed inset-0 h-[100dvh] w-full bg-stone-50/95 dark:bg-customDark/95 backdrop-blur-sm z-[100] transition-opacity duration-500 ease-in-out md:hidden flex flex-col justify-center items-center ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      <div className={`fixed inset-0 h-[100dvh] w-full bg-stone-50/95 dark:bg-customDark/95 backdrop-blur-sm z-[100] transition-all duration-500 ease-in-out md:hidden flex flex-col justify-center items-center ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}>
 
         {/* Navigation Links - Centered, Fade Only */}
-        <div className="flex flex-col space-y-8 text-center items-center">
+        <div className="flex flex-col space-y-8 text-center items-center pt-12">
           {navLinks.map((link, index) => (
             <Link
               key={link.path}
               to={link.path}
               onClick={() => setIsOpen(false)}
               style={{ transitionDelay: `${index * 50}ms` }}
-              className={`text-lg font-serif tracking-[0.2em] transition-opacity duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'
+              className={`text-lg font-serif tracking-[0.2em] transition-all duration-500 ${isOpen ? 'opacity-100' : 'opacity-0'
                 } ${location.pathname === link.path
                   ? 'text-stone-900 dark:text-stone-50 underline underline-offset-8'
                   : 'text-stone-800 dark:text-stone-300 hover:text-stone-500 dark:hover:text-stone-100'
@@ -146,7 +146,7 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Bottom Footer in Menu - Centered, Fade Only */}
-        <div className={`mt-12 flex flex-col items-center space-y-8 transition-opacity duration-700 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
+        <div className={`mt-12 flex flex-col items-center space-y-8 transition-all duration-700 delay-300 ${isOpen ? 'opacity-100' : 'opacity-0'}`}>
 
           {/* Mobile Theme Toggle */}
           <button
