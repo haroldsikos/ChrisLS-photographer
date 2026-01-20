@@ -191,9 +191,37 @@ const Tips: React.FC = () => {
                     </div>
 
                     <div className="mt-8 pt-6 border-t border-white/10 w-full relative z-10">
-                        <p className="text-[10px] text-white/40 font-sans uppercase tracking-widest">
+                        <p className="text-[10px] text-white/40 font-sans uppercase tracking-widest mb-4">
                             {t('tips.onlyPeru')}
                         </p>
+
+                        <div className="mt-4 text-left bg-white/5 rounded-lg p-5 backdrop-blur-sm border border-white/10">
+                            <h4 className="text-sm font-serif text-white/90 mb-4 border-b border-white/10 pb-2">Datos Bancarios (Transferencias)</h4>
+
+                            <div className="space-y-5 text-xs font-sans text-white/80">
+                                {/* BCP SOLES */}
+                                <div>
+                                    <p className="uppercase tracking-wider text-white/60 mb-1 text-[10px]">BCP Soles</p>
+                                    <div className="flex justify-between items-center bg-black/20 p-3 rounded hover:bg-black/30 transition-colors cursor-pointer group/copy" onClick={() => navigator.clipboard.writeText('28577789142055')}>
+                                        <span className="tracking-wide">285-77789142-0-55</span>
+                                        <span className="text-white/40 text-[9px] uppercase group-hover/copy:text-white/90">Copiar</span>
+                                    </div>
+                                    <p className="mt-1 text-white/50 text-[10px] tracking-wide">CCI: 002-285-177789142055-58</p>
+                                </div>
+
+                                {/* BCP DOLARES */}
+                                <div>
+                                    <p className="uppercase tracking-wider text-white/60 mb-1 text-[10px]">BCP Dólares</p>
+                                    <div className="flex justify-between items-center bg-black/20 p-3 rounded hover:bg-black/30 transition-colors cursor-pointer group/copy" onClick={() => navigator.clipboard.writeText('28577789694112')}>
+                                        <span className="tracking-wide">285-77789694-1-12</span>
+                                        <span className="text-white/40 text-[9px] uppercase group-hover/copy:text-white/90">Copiar</span>
+                                    </div>
+                                    <p className="mt-1 text-white/50 text-[10px] tracking-wide">CCI: 002-285-177789694112-59</p>
+                                </div>
+
+                                <p className="text-white/40 text-[10px] pt-2 text-center uppercase tracking-widest">Titular: Cristian Layme Sikos</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

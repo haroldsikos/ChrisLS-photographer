@@ -69,6 +69,10 @@ export const translations = {
                 6: {
                     name: "Print: Paisajes del Perú",
                     desc: "Lleva la magia de los Andes a tu hogar. Impresión Fine Art certificada. Varios tamaños disponibles."
+                },
+                7: {
+                    name: "Presets: Andean Mood",
+                    desc: "Pack de 10 presets para Lightroom (Mobile & Desktop). Estiliza tus fotos con mis tonos característicos. Incluye guía en PDF."
                 }
             }
         },
@@ -183,6 +187,10 @@ export const translations = {
                 6: {
                     name: "Print: Landscapes of Peru",
                     desc: "Bring the magic of the Andes to your home. Certified Fine Art Print. Various sizes available."
+                },
+                7: {
+                    name: "Presets: Andean Mood",
+                    desc: "Pack of 10 Lightroom presets (Mobile & Desktop). Style your photos with my signature tones. Includes PDF guide."
                 }
             }
         },

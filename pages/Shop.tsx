@@ -66,6 +66,14 @@ const Shop: React.FC = () => {
       price: 120.00,
       image: "https://placehold.co/600x800/F5F5F4/57534E?text=Fine+Art+Print",
       description: t('shop.products.6.desc')
+    },
+    {
+      id: 7,
+      name: t('shop.products.7.name'),
+      type: t('shop.type.digital'),
+      price: 45.00,
+      image: "https://placehold.co/600x800/292524/E7E5E4?text=Presets+Pack",
+      description: t('shop.products.7.desc')
     }
   ];
 
@@ -133,20 +141,20 @@ const Shop: React.FC = () => {
           <div key={product.id} className="group flex flex-col">
             {/* Image Container */}
             {/* Image Container / Placeholder with Card Stack Effect - Always Visible Fan */}
-            <div className="relative aspect-[4/5] mb-8 cursor-pointer group/card perspective-1000" onClick={() => handleImageClick(index)}>
+            <div className="relative aspect-[4/5] w-[90%] mx-auto mb-12 cursor-pointer group/card perspective-1000" onClick={() => handleImageClick(index)}>
 
               {/* Back Card 2 (Right Fan) - Always visible but tighter, expands on hover */}
-              <div className="absolute inset-0 bg-stone-200 dark:bg-stone-700/60 rounded-sm transform transition-all duration-500 ease-out origin-bottom-right rotate-3 translate-x-2 group-hover/card:rotate-6 group-hover/card:translate-x-4 shadow-sm" />
+              <div className="absolute inset-0 bg-stone-200 dark:bg-stone-700/60 rounded-sm transform transition-all duration-500 ease-out origin-bottom-right rotate-3 translate-x-2 group-hover/card:rotate-4 group-hover/card:translate-x-3 shadow-sm" />
 
               {/* Back Card 1 (Left Fan) - Always visible, expands on hover */}
-              <div className="absolute inset-0 bg-stone-300 dark:bg-stone-600/60 rounded-sm transform transition-all duration-500 ease-out origin-bottom-left -rotate-2 -translate-x-1 group-hover/card:-rotate-3 group-hover/card:-translate-x-3 shadow-md" />
+              <div className="absolute inset-0 bg-stone-300 dark:bg-stone-600/60 rounded-sm transform transition-all duration-500 ease-out origin-bottom-left -rotate-2 -translate-x-1 group-hover/card:-rotate-2 group-hover/card:-translate-x-2 shadow-md" />
 
               {/* Main Front Card */}
-              <div className="relative z-10 w-full h-full overflow-hidden bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-lg transition-all duration-500 ease-out group-hover/card:-translate-y-2 group-hover/card:shadow-2xl flex items-center justify-center">
+              <div className="relative z-10 w-full h-full overflow-hidden bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 shadow-lg transition-all duration-500 ease-out group-hover/card:-translate-y-1 group-hover/card:shadow-2xl flex items-center justify-center">
 
                 {/* Content inside the card */}
                 <div className="w-full h-full flex items-center justify-center p-6 text-center">
-                  <span className="font-serif text-2xl italic tracking-widest text-stone-400 dark:text-stone-500 group-hover/card:text-stone-800 dark:group-hover/card:text-stone-300 transition-colors duration-500">
+                  <span className="font-serif text-xl md:text-2xl italic tracking-widest text-stone-400 dark:text-stone-500 group-hover/card:text-stone-800 dark:group-hover/card:text-stone-300 transition-colors duration-500">
                     {product.name}
                   </span>
                 </div>
