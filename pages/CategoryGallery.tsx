@@ -21,35 +21,35 @@ const CategoryGallery: React.FC = () => {
     const images = useMemo(() => {
         const generatedImages: Photo[] = [];
 
-        let prefix = 'p';
-        let start = 50;
-        let count = 12; // Images per category to show
-
-        // Simple distribution hash to vary images slightly between categories
-        // ensuring we use the files we saw in the file list (p50-p89, comm_1...)
+        // Updated logic for reorganized folder structure: /images/categories/[id]/[1..N].webp
         if (category.id === 'commercial') {
-            // Use commercial folder
+            // Commercial has ~40 images (comm_1 ... comm_40)
             for (let i = 1; i <= 20; i++) {
                 generatedImages.push({
                     id: `${category.id}-${i}`,
-                    url: `/images/commercial/comm_${i}.webp`,
+                    // Note: My script moved 'commercial' folder content to 'categories/commercial'
+                    // The files inside are likely still named 'comm_X.webp' if they were before, 
+                    // or just 1.webp etc if I renamed them? 
+                    // My script: "if dst exists, move files individually". 
+                    // It does NOT rename commercial files. It preserved names. 
+                    // Previous names were 'comm_X.webp'.
+                    url: `/images/categories/commercial/comm_${i}.webp`,
                     category: t(category.titleKey),
                     title: `${t(category.titleKey)} ${i}`
                 });
             }
         } else {
-            // Distribute portfolio images
-            // We have roughly p50 to p89 (40 images) + some others.
-            // We'll just loop through them with different offsets.
-            const categoryIndex = CATEGORIES.indexOf(category);
-            const offset = categoryIndex * 5;
+            // Other categories have ~5 images each (1.webp ... 5.webp)
+            // We want to show a grid of 12, so we cycle them.
+            const availableImagesCount = 5;
 
-            for (let i = 0; i < 15; i++) {
-                // Formula to cycle through available images p50-p89
-                const fileNum = 50 + ((i + offset) % 40);
+            for (let i = 0; i < 12; i++) {
+                // cycle 1..5
+                const fileNum = (i % availableImagesCount) + 1;
+
                 generatedImages.push({
                     id: `${category.id}-${i}`,
-                    url: `/images/portfolio/p${fileNum}.webp`,
+                    url: `/images/categories/${category.id}/${fileNum}.webp`,
                     category: t(category.titleKey),
                     title: `${t(category.titleKey)} ${i + 1}`
                 });

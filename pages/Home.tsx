@@ -11,11 +11,11 @@ const Home: React.FC = () => {
       {/* Hero Section - 5x1 Image Grid */}
       <div className="relative h-screen w-full grid grid-cols-5 overflow-hidden">
         {[
-          '/images/portfolio/p52.webp',
-          '/images/portfolio/p58.webp',
-          '/images/portfolio/p63.webp',
-          '/images/portfolio/p75.webp',
-          '/images/portfolio/p88.webp'
+          '/images/hero/hero_slide_1.webp',
+          '/images/hero/hero_slide_2.webp',
+          '/images/hero/hero_slide_3.webp',
+          '/images/hero/hero_slide_4.webp',
+          '/images/hero/hero_slide_5.webp'
         ].map((src, index) => (
           <div key={index} className="relative h-full w-full overflow-hidden border-r border-white last:border-r-0">
             <FadeInImage

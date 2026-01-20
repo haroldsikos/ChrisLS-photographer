@@ -84,7 +84,7 @@ const Navbar: React.FC = () => {
             }`}
         >
           <img
-            src="/images/me/Logo_CrisLS.webp"
+            src="/images/about/Logo_CrisLS.webp"
             alt="Logo Cris L.S"
             className={`w-10 h-10 object-contain transition-all duration-300 ${!isTransparentWithDarkBg ? 'invert dark:invert-0' : ''}`}
           />

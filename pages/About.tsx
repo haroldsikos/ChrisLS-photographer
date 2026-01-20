@@ -11,7 +11,7 @@ const About: React.FC = () => {
         <div className="w-full md:w-1/2">
           <div className="aspect-[3/4] bg-stone-200 overflow-hidden relative">
             <FadeInImage
-              src="/images/me/Christian_me.webp"
+              src="/images/about/Christian_me.webp"
               alt="Cris L.S"
               className="w-full h-full object-cover rounded-sm shadow-xl"
               containerClassName="w-full h-full"

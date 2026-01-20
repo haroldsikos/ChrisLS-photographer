@@ -21,7 +21,7 @@ const CategoryHero: React.FC<CategoryHeroProps> = ({ category }) => {
                 <FadeInImage
                     src={category.coverImage}
                     alt={t(category.titleKey)}
-                    className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                    className={`w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110 ${category.id === 'casual' ? '!w-[calc(100%+40px)] !max-w-none !-ml-[20px]' : ''}`}
                     containerClassName="w-full h-full"
                 />
                 {/* Overlay */}
