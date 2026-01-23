@@ -37,7 +37,13 @@ const FadeIn: React.FC<FadeInProps> = ({
             observer.observe(ref.current);
         }
 
-        return () => observer.disconnect();
+        // Safety fallback: Ensure content is visible after a delay if observer fails
+        const safetyTimer = setTimeout(() => setIsVisible(true), 500);
+
+        return () => {
+            observer.disconnect();
+            clearTimeout(safetyTimer);
+        };
     }, [threshold]);
 
     return (

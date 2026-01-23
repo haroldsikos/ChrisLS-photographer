@@ -35,7 +35,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const App: React.FC = () => {
-  useImageProtection();
+  // useImageProtection();
   return (
     <LanguageProvider>
       <Router>
