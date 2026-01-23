@@ -225,6 +225,8 @@ const Shop: React.FC = () => {
                     alt=""
                     className={`w-full h-full object-cover opacity-80 ${product.id === 7 ? 'scale-110' : ''}`}
                     loading="lazy"
+                    onContextMenu={(e) => e.preventDefault()}
+                    draggable={false}
                   />
                 )}
               </div>
@@ -237,6 +239,8 @@ const Shop: React.FC = () => {
                     alt=""
                     className={`w-full h-full object-cover opacity-90 ${product.id === 7 ? 'scale-110' : ''}`}
                     loading="lazy"
+                    onContextMenu={(e) => e.preventDefault()}
+                    draggable={false}
                   />
                 )}
               </div>
@@ -251,6 +255,8 @@ const Shop: React.FC = () => {
                   onError={handleImageError}
                   className={`absolute inset-0 w-full h-full object-cover transition-transform duration-700 ${product.id === 7 ? 'scale-110 group-hover/card:scale-[1.15]' : 'group-hover/card:scale-105'}`}
                   loading="lazy"
+                  onContextMenu={(e) => e.preventDefault()}
+                  draggable={false}
                 />
 
                 {/* Overlay for text legibility (optional, primarily for hover) */}
@@ -368,6 +374,8 @@ const Shop: React.FC = () => {
                 onError={handleImageError}
                 className="w-full h-full object-contain bg-stone-900 fade-in select-none"
                 style={{ animationDuration: '0.4s' }}
+                onContextMenu={(e) => e.preventDefault()}
+                draggable={false}
               />
 
               {/* Dots Indicators (Overlay on Image) */}

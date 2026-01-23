@@ -168,6 +168,7 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
               alt={selectedPhoto.title}
               className="max-h-[80vh] w-auto object-contain shadow-2xl rounded-sm fade-in select-none"
               draggable={false}
+              onContextMenu={(e) => e.preventDefault()}
               style={{ animationDuration: '0.3s' }}
             />
             <div className="mt-6 text-center text-white">

@@ -11,6 +11,7 @@ import Tips from './pages/Tips';
 import Shop from './pages/Shop';
 import { PageRoute } from './types';
 import { LanguageProvider } from './context/LanguageContext';
+import useImageProtection from './hooks/useImageProtection';
 
 // Scroll to top on route change component
 const ScrollToTop = () => {
@@ -34,6 +35,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const App: React.FC = () => {
+  useImageProtection();
   return (
     <LanguageProvider>
       <Router>
