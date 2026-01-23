@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Photo } from '../types';
 import { Maximize2, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import FadeInImage from './FadeInImage';
+import FadeIn from './FadeIn';
 
 interface GalleryProps {
   photos: Photo[];
@@ -51,33 +52,39 @@ const Gallery: React.FC<GalleryProps> = ({ photos }) => {
   return (
     <>
       <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6 px-4 md:px-0">
-        {photos.map((photo, index) => (
-          <div
-            key={photo.id}
-            className="break-inside-avoid mb-6 group cursor-pointer"
-            onClick={() => handlePhotoClick(index)}
-          >
-            <div className="relative overflow-hidden aspect-[2/3]">
-              <FadeInImage
-                src={photo.url}
-                alt={photo.title || "Photography by Cris L.S"}
-                className="w-full h-full object-cover transition-transform duration-700 scale-[1.16] group-hover:scale-[1.25]"
-                containerClassName="w-full h-full"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-              {photo.title && (
-                <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white bg-gradient-to-t from-black/50 to-transparent">
-                  <p className="font-serif italic text-lg tracking-wide">{photo.title}</p>
-                  {photo.category && <p className="text-xs font-sans uppercase tracking-widest">{photo.category}</p>}
+        {photos.map((photo, index) => {
+          // Staggered vertical alignment without rotation - More pronounced (más marcado)
+          const margins = ['mt-0', 'mt-24', 'mt-8', 'mt-32', 'mt-12', 'mt-20'];
+          const marginStyle = margins[index % margins.length];
+
+          return (
+            <FadeIn
+              key={photo.id}
+              className={`break-inside-avoid mb-16 group cursor-pointer ${marginStyle} transition-all duration-700 ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-105 relative z-0 hover:z-20`}
+              onClick={() => handlePhotoClick(index)}
+            >
+              <div className="relative overflow-hidden">
+                <FadeInImage
+                  src={photo.url}
+                  alt={photo.title || "Photography by Cris L.S"}
+                  className="w-full h-auto transition-transform duration-[1.5s] ease-out scale-110 group-hover:scale-115"
+                  containerClassName="w-full bg-stone-100 dark:bg-stone-900"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+                {photo.title && (
+                  <div className="absolute bottom-0 left-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white bg-gradient-to-t from-black/50 to-transparent">
+                    <p className="font-serif italic text-lg tracking-wide">{photo.title}</p>
+                    {photo.category && <p className="text-xs font-sans uppercase tracking-widest">{photo.category}</p>}
+                  </div>
+                )}
+                {/* Expand icon indicator on hover */}
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white drop-shadow-md">
+                  <Maximize2 size={20} />
                 </div>
-              )}
-              {/* Expand icon indicator on hover */}
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white drop-shadow-md">
-                <Maximize2 size={20} />
               </div>
-            </div>
-          </div>
-        ))}
+            </FadeIn>
+          );
+        })}
       </div>
 
       {/* Lightbox / Modal */}

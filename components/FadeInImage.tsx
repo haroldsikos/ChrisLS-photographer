@@ -45,7 +45,7 @@ const FadeInImage: React.FC<FadeInImageProps> = ({
             <img
                 src={src}
                 alt={alt}
-                className={`transition-all duration-1000 ease-out will-change-transform select-none ${isLoaded ? 'opacity-100 blur-0 scale-100' : 'opacity-0 blur-xl scale-110'
+                className={`transition-all duration-1000 ease-out will-change-transform select-none ${isLoaded ? 'opacity-100 blur-0' : 'opacity-0 blur-xl scale-110'
                     } ${className}`}
                 onLoad={() => setIsLoaded(true)}
                 loading="lazy"

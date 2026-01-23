@@ -38,6 +38,7 @@ export const translations = {
             customTitle: '¿Buscas algo personalizado?',
             customText: 'Realizo impresiones a medida y licencias comerciales bajo pedido.',
             consultLink: 'Consultar',
+            includes: 'LO QUE INCLUYE',
             type: {
                 print: 'Fine Art Print',
                 digital: 'Digital',
@@ -156,6 +157,7 @@ export const translations = {
             customTitle: 'Looking for something custom?',
             customText: 'I do custom prints and commercial licensing upon request.',
             consultLink: 'Inquire',
+            includes: 'INCLUDES',
             type: {
                 print: 'Fine Art Print',
                 digital: 'Digital',
